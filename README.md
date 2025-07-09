@@ -6,10 +6,17 @@ A multi-level 2D game built entirely using the Jack language.
 "Don't Touch the Wall" is a simple reflex game where players navigate a character through a narrow path without colliding with walls. Each level increases in difficulty, and there's a special two-player mode.
 
 ### Game Features:
-- **Level 1**: Basic maze with three inner walls and outer borders
-- **Level 2**: More complex maze with 21 walls, requiring precise navigation
-- **Level 3**: Advanced maze with 42 walls, testing player skill
-- **Two-Player Mode**: Competitive mode where two players navigate the same maze simultaneously
+- **Level 1**: Basic maze with three inner walls and outer borders  
+  ![Level 1](screeenshots/1player_level1.jpg)
+
+- **Level 2**: More complex maze with 21 walls, requiring precise navigation  
+  ![Level 2](screeenshots/1player_level2.jpg)
+
+- **Level 3**: Advanced maze with 42 walls, testing player skill  
+  ![Level 3](screeenshots/1player_level3.jpg)
+
+- **Two-Player Mode**: Competitive mode where two players navigate the same maze simultaneously  
+  ![Two-Player Mode](screeenshots/2player_level1.jpg)
 - **Collision Detection**: Real-time checking for ball-wall collisions, displaying an error message and allowing restarts
 
 ---
