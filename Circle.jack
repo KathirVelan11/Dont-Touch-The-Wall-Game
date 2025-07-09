@@ -1,0 +1,92 @@
+class Circle 
+{
+    field int x, y,radius; 
+
+    constructor Circle new(int ax, int ay, int aradius) 
+    {
+        let x = ax;
+        let y = ay;
+        let radius = aradius;
+        do draw();
+        return this;
+    }
+    
+    method int getx()
+    {
+        return x;
+    }
+    
+    method int gety()
+    {
+        return y;
+    }
+    
+    method int getr()
+    {
+        return radius;
+    }
+    method void dispose() 
+    {
+        do Memory.deAlloc(this);
+        return;
+    }
+
+    method void draw() 
+    {
+        do Screen.setColor(true);
+        do Screen.drawCircle(x, y, radius);
+        return;
+    }
+
+    method void erase() 
+    {
+        do Screen.setColor(false); 
+        do Screen.drawCircle(x, y, radius);
+        return;
+    }
+
+    method void moveUp() 
+    {
+        if ((y + radius) > 10) 
+        {
+            do erase();
+            let y = y - 1;
+            do draw();
+        }
+        return;
+    }
+
+    method void moveDown() 
+    {
+        if ((y + radius) < 254) 
+        {
+            do erase();
+            let y = y + 1;
+            do draw();
+        }
+        return;
+    }
+
+    method void moveLeft() 
+    {
+        if ((x + radius) > 10) 
+        {
+            do erase();
+            let x = x - 1;
+            do draw();
+        }
+        return;
+    }
+
+    method void moveRight() 
+    {
+        if ((x + radius) < 510) 
+        {
+            do erase();
+            let x = x + 1;
+            do draw();
+        }
+        return;
+    }
+
+}

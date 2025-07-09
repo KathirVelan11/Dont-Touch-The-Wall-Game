@@ -1,0 +1,20 @@
+class Circlewall 
+{
+    field int x11, y11, x22, y22;
+
+    constructor Circlewall new(int x1, int y1, int x2, int y2) 
+    {
+        let x11 = x1;
+        let y11 = y1;
+        let x22 = x2;
+        let y22 = y2;
+        do Screen.drawRectangle(x11, y11, x22, y22);
+        return this;
+    }
+
+    method void dispose() 
+    {
+        do Memory.deAlloc(this);
+        return;
+    }
+}

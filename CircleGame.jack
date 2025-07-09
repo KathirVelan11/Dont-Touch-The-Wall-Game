@@ -1,0 +1,429 @@
+class CircleGame 
+{
+    field int direction;
+    field Circle circle; 
+    field Circlewall rectangle1,rectangle2,rectangle3;
+    field Circlewall top,right,left,down;
+    field int key;
+    field boolean exit;
+    
+    field int rect1x11, rect1y11, rect1x22, rect1y22;
+    field int rect2x11, rect2y11, rect2x22, rect2y22;
+    field int rect3x11, rect3y11, rect3x22, rect3y22;
+    
+    field int topx11, topy11, topx22, topy22;
+    field int leftx11, lefty11, leftx22, lefty22;
+    field int rightx11, righty11, rightx22, righty22;
+    field int downx11, downy11, downx22, downy22;
+
+    constructor CircleGame new() 
+    { 
+        let direction = 0;
+        
+        //walls
+        let rect1x11 = 120;
+        let rect1y11 = 0;
+        let rect1x22 = 130;
+        let rect1y22 = 216;
+        
+        let rect2x11 = 250;
+        let rect2y11 = 40;
+        let rect2x22 = 260;
+        let rect2y22 = 254;
+        
+        let rect3x11 = 380;
+        let rect3y11 = 0;
+        let rect3x22 = 390;
+        let rect3y22 = 216;
+        
+        //borders
+        let topx11 = 0;
+        let topy11 = 0;
+        let topx22 = 510;
+        let topy22 = 10;
+        
+        let leftx11 = 0;
+        let lefty11 = 10;
+        let leftx22 = 10;
+        let lefty22 = 254;
+        
+        let rightx11 = 500;
+        let righty11 = 35;
+        let rightx22 = 510;
+        let righty22 = 254;
+        
+        let downx11 = 10;
+        let downy11 = 244;
+        let downx22 = 510;
+        let downy22 = 254;
+        
+        return this;
+    }
+
+    method void dispose() 
+    {
+        do circle.dispose();
+        do rectangle1.dispose();
+        do rectangle2.dispose();
+        do rectangle3.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+    
+    method void isend()
+    {
+        var int tx,ty;
+        let tx = circle.getx();
+        let ty = circle.gety();
+        if((tx = 505) & ((ty > 10) | (ty < 35)))
+        {
+            do Screen.clearScreen();
+            do successprint();
+            let exit = true;
+            return;
+        }
+        return;
+    }
+    
+   method void moveCircle() 
+    {
+        var int t1, t2;
+        if (direction = 1) 
+        { 
+            do circle.moveUp(); 
+        } 
+        if (direction = 2) 
+        { 
+            do circle.moveDown(); 
+        } 
+        if (direction = 3) 
+        { 
+            do circle.moveLeft(); 
+        } 
+        if (direction = 4) 
+        { 
+            do circle.moveRight(); 
+        }
+        do Sys.wait(5);
+        return;
+    }
+
+    method void run() 
+    {
+	    //do displayText();
+        //et circle = Circle.new(20, 20, 5);
+        let circle = Circle.new(480, 20, 5);
+        let exit = false;
+        do borderdraw();
+        do walldraw();
+        while (~exit) 
+        {
+            let key = Keyboard.keyPressed();
+            while(~(key = 0))
+            {
+            if (key = 81)  
+            { 
+                let exit = true; 
+            }
+            if (key = 131) 
+            { 
+                let direction = 1; 
+            }
+            if (key = 133) 
+            { 
+                let direction = 2;
+            }   
+            if (key = 130) 
+            { 
+                let direction = 3; 
+            }  
+            if (key = 132) 
+            { 
+                let direction = 4; 
+            }
+            do moveCircle();
+            do checkCollision();
+            do isend();
+            let key = 0;
+            }
+        }
+        return;
+    }
+    
+	method void restart()
+    {
+        do circle.dispose();
+        //let circle = Circle.new(20, 20, 5); 
+        let circle = Circle.new(480, 20, 5);
+        let direction = 0;
+        do run();
+        return;
+    }
+
+    method void borderdraw()
+    {
+        let top = Circlewall.new(topx11, topy11, topx22, topy22);
+        let left = Circlewall.new(leftx11, lefty11, leftx22, lefty22);
+        let right = Circlewall.new(rightx11, righty11, rightx22, righty22);
+        let down = Circlewall.new(downx11, downy11, downx22, downy22);
+        return;
+    }
+
+    method void walldraw()
+    {
+        let rectangle1 = Circlewall.new(rect1x11, rect1y11, rect1x22, rect1y22);
+        let rectangle2 = Circlewall.new(rect2x11, rect2y11, rect2x22, rect2y22);
+        let rectangle3 = Circlewall.new(rect3x11, rect3y11, rect3x22, rect3y22);
+        return;
+    }
+    
+    method void checkCollision() 
+    {
+        var int tx, ty, tr;
+        var boolean check;
+        let tx = circle.getx();
+        let ty = circle.gety();
+        let tr = circle.getr();
+        let check = false;
+        
+        //rect1
+        if(((tx + tr > rect1x11) | (tx + tr = rect1x11))  & ((tx - tr < rect1x22)  | (tx - tr = rect1x22))
+          &((ty + tr > rect1y11) | (ty + tr = rect1y11))  & ((ty - tr < rect1y22) | (ty - tr = rect1y22)))
+           {
+               let check = true;
+           }
+        
+        //rect2
+        if(((tx + tr > rect2x11) | (tx + tr = rect2x11))  & ((tx - tr < rect2x22)  | (tx - tr = rect2x22))
+          &((ty + tr > rect2y11) | (ty + tr = rect2y11))  & ((ty - tr < rect2y22) | (ty - tr = rect2y22)))
+           {
+               let check = true;
+           }
+        
+        //rect3
+        if(((tx + tr > rect3x11) | (tx + tr = rect3x11))  & ((tx - tr < rect3x22)  | (tx - tr = rect3x22))
+          &((ty + tr > rect3y11) | (ty + tr = rect3y11))  & ((ty - tr < rect3y22) | (ty - tr = rect3y22)))
+           {
+               let check = true;
+           }
+           
+        // top border
+        if(((tx + tr > topx11) | (tx + tr = topx11))  & ((tx - tr < topx22)  | (tx - tr = topx22))
+          &((ty + tr > topy11) | (ty + tr = topy11))  & ((ty - tr < topy22) | (ty - tr = topy22)))
+           {
+               let check = true;
+           }
+           
+        // right border
+        if(((tx + tr > rightx11) | (tx + tr = rightx11))  & ((tx - tr < rightx22)  | (tx - tr = rightx22))
+          &((ty + tr > righty11) | (ty + tr = righty11))  & ((ty - tr < righty22) | (ty - tr = righty22)))
+           {
+               let check = true;
+           }
+           
+        //left border
+        if(((tx + tr > leftx11) | (tx + tr = leftx11))  & ((tx - tr < leftx22)  | (tx - tr = leftx22))
+          &((ty + tr > lefty11) | (ty + tr = lefty11))  & ((ty - tr < lefty22) | (ty - tr = lefty22)))
+           {
+               let check = true;
+           }
+           
+        //down border
+        if(((tx + tr > downx11) | (tx + tr = downx11))  & ((tx - tr < downx22)  | (tx - tr = downx22))
+          &((ty + tr > downy11) | (ty + tr = downy11))  & ((ty - tr < downy22) | (ty - tr = downy22)))
+           {
+               let check = true;
+           }
+           
+        if(check)
+        {
+            do errorprint();
+	        let exit = false;
+	        while (~exit) 
+                {
+                    let key = Keyboard.keyPressed();
+                    while(~(key = 0))
+                        {
+                            if (key = 82)  
+                                {
+                            		do Screen.clearScreen();
+                            		do restart();
+                                }            
+	                        let key = 0;
+                       }
+                }
+        }
+        return;
+    }
+        
+    method void errorprint()
+    {
+        do Output.moveCursor(0,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(1,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(2,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(3,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(4,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(5,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(6,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(7,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(8,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(9,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(10,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(10, 25);
+        do Output.printString("Hit in wall!");
+        do Output.moveCursor(11,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(12,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(13,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(14,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(15,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(16,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(17,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(18,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(19,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(20,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(21,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(22,0);
+        do Output.printString("****************************************************************");
+	do Output.moveCursor(21, 17);
+        do Output.printString("Press r to restart this level ");
+        //do Sys.wait(5000);
+        return;
+    }
+    
+    method void successprint()
+    {
+        do Output.moveCursor(0,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(1,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(2,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(3,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(4,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(5,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(6,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(7,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(8,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(9,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(10,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(11,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(12,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(13,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(14,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(15,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(16,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(17,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(18,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(19,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(20,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(21,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(22,0);
+        do Output.printString("****************************************************************");
+
+        do Output.moveCursor(11, 17);
+        do Output.printString("Sucessfully passed the level 1!");
+        do Output.moveCursor(21, 14);
+        do Output.printString("Press space bar to move the next level !");
+        return;
+    }
+
+    method void startlevel1slide()
+    {
+        do Screen.clearScreen();
+        do Output.moveCursor(0,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(1,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(2,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(3,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(4,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(5,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(6,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(7,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(8,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(9,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(10,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(11,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(12,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(13,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(14,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(15,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(16,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(17,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(18,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(19,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(20,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(21,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(22,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(21, 22);
+        do Output.printString("Press y to start !");
+        do Output.moveCursor(11, 27);
+        do Output.printString("LEVEL 1");
+        return;
+    }
+}
+
+        
+        

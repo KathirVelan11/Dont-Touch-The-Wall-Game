@@ -1,0 +1,994 @@
+class Circlegamethree
+{
+    field Circle ball; 
+    field Circlewall rectangle1, rectangle2, rectangle3, rectangle4, rectangle5, rectangle6, rectangle7, rectangle8, rectangle9, rectangle10,rectangle11, rectangle12, rectangle13, rectangle14, rectangle15,rectangle16, rectangle17, rectangle18, rectangle19, rectangle20,rectangle21;
+    
+    field Circlewall rectangle22, rectangle23, rectangle24, rectangle25, rectangle26, rectangle27, rectangle28, rectangle29, rectangle30,
+    rectangle31, rectangle32, rectangle33, rectangle34, rectangle35, rectangle36, rectangle37, rectangle38, rectangle39, rectangle40,
+    rectangle41, rectangle42;
+    
+    field int direction;
+    field int key;
+    field boolean exit;
+    //field displaylevelthree dobj;
+    
+    field int rect1x11, rect1y11, rect1x22, rect1y22;
+    field int rect2x11, rect2y11, rect2x22, rect2y22;
+    field int rect3x11, rect3y11, rect3x22, rect3y22;
+    field int rect4x11, rect4y11, rect4x22, rect4y22;
+    field int rect5x11, rect5y11, rect5x22, rect5y22;
+    field int rect6x11, rect6y11, rect6x22, rect6y22;
+    field int rect7x11, rect7y11, rect7x22, rect7y22;
+    field int rect8x11, rect8y11, rect8x22, rect8y22;
+    field int rect9x11, rect9y11, rect9x22, rect9y22;
+    field int rect10x11, rect10y11, rect10x22, rect10y22;
+    field int rect11x11, rect11y11, rect11x22, rect11y22;
+    field int rect12x11, rect12y11, rect12x22, rect12y22;
+    field int rect13x11, rect13y11, rect13x22, rect13y22;
+    field int rect14x11, rect14y11, rect14x22, rect14y22;
+    field int rect15x11, rect15y11, rect15x22, rect15y22;
+    field int rect16x11, rect16y11, rect16x22, rect16y22;
+    field int rect17x11, rect17y11, rect17x22, rect17y22;
+    field int rect18x11, rect18y11, rect18x22, rect18y22;
+    field int rect19x11, rect19y11, rect19x22, rect19y22;
+    field int rect20x11, rect20y11, rect20x22, rect20y22;
+    field int rect21x11, rect21y11, rect21x22, rect21y22;
+    field int rect22x11, rect22y11, rect22x22, rect22y22;
+    field int rect23x11, rect23y11, rect23x22, rect23y22;
+    field int rect24x11, rect24y11, rect24x22, rect24y22;
+    field int rect25x11, rect25y11, rect25x22, rect25y22;
+    field int rect26x11, rect26y11, rect26x22, rect26y22;
+    field int rect27x11, rect27y11, rect27x22, rect27y22;
+    field int rect28x11, rect28y11, rect28x22, rect28y22;
+    field int rect29x11, rect29y11, rect29x22, rect29y22;
+    field int rect30x11, rect30y11, rect30x22, rect30y22;
+    field int rect31x11, rect31y11, rect31x22, rect31y22;
+    field int rect32x11, rect32y11, rect32x22, rect32y22;
+    field int rect33x11, rect33y11, rect33x22, rect33y22;
+    field int rect34x11, rect34y11, rect34x22, rect34y22;
+    field int rect35x11, rect35y11, rect35x22, rect35y22;
+    field int rect36x11, rect36y11, rect36x22, rect36y22;
+    field int rect37x11, rect37y11, rect37x22, rect37y22;
+    field int rect38x11, rect38y11, rect38x22, rect38y22;
+    field int rect39x11, rect39y11, rect39x22, rect39y22;
+    field int rect40x11, rect40y11, rect40x22, rect40y22;
+    field int rect41x11, rect41y11, rect41x22, rect41y22;
+    field int rect42x11, rect42y11, rect42x22, rect42y22;
+    
+    constructor Circlegamethree new() 
+    {
+	 let ball = Circle.new(115,140,5);//395,139
+        let rect1x11 = 0;
+        let rect1y11 = 0;
+        let rect1x22 = 510;
+        let rect1y22 = 5;
+
+        let rect2x11 = 505;
+        let rect2y11 = 5;
+        let rect2x22 = 510;
+        let rect2y22 = 254;
+
+        let rect3x11 = 253;
+        let rect3y11 = 25;
+        let rect3x22 = 258;
+        let rect3y22 = 254;
+
+        let rect4x11 = 258;
+        let rect4y11 = 249;
+        let rect4x22 = 505;
+        let rect4y22 = 254;
+
+        let rect5x11 = 258;
+        let rect5y11 = 25;
+        let rect5x22 = 485;
+        let rect5y22 = 30;
+
+        let rect6x11 = 480;
+        let rect6y11 = 30;
+        let rect6x22 = 485;
+        let rect6y22 = 229;
+
+        let rect7x11 = 278;
+        let rect7y11 = 224;
+        let rect7x22 = 480;
+        let rect7y22 = 229;
+
+        let rect8x11 = 278;
+        let rect8y11 = 50;
+        let rect8x22 = 283;
+        let rect8y22 = 224;
+
+        let rect9x11 = 278;
+        let rect9y11 = 50;
+        let rect9x22 = 460;
+        let rect9y22 = 55;
+
+        let rect10x11 = 455;
+        let rect10y11 = 55;
+        let rect10x22 = 460;
+        let rect10y22 = 204;
+
+        let rect11x11 = 303;
+        let rect11y11 = 199;
+        let rect11x22 = 455;
+        let rect11y22 = 204;
+
+        let rect12x11 = 303;
+        let rect12y11 = 75;
+        let rect12x22 = 308;
+        let rect12y22 = 199;
+
+        let rect13x11 = 308;
+        let rect13y11 = 75;
+        let rect13x22 = 430;
+        let rect13y22 = 80;
+
+        let rect14x11 = 430;
+        let rect14y11 = 75;
+        let rect14x22 = 435;
+        let rect14y22 = 179;
+
+        let rect15x11 = 328;
+        let rect15y11 = 174;
+        let rect15x22 = 435;
+        let rect15y22 = 179;
+
+        let rect16x11 = 328;
+        let rect16y11 = 100;
+        let rect16x22 = 333;
+        let rect16y22 = 179;
+
+        let rect17x11 = 333;
+        let rect17y11 = 100;
+        let rect17x22 = 410;
+        let rect17y22 = 105;
+
+        let rect18x11 = 405;
+        let rect18y11 = 105;
+        let rect18x22 = 410;
+        let rect18y22 = 154;
+
+        let rect19x11 = 353;
+        let rect19y11 = 149;
+        let rect19x22 = 405;
+        let rect19y22 = 154;
+
+        let rect20x11 = 353;
+        let rect20y11 = 125;
+        let rect20x22 = 358;
+        let rect20y22 = 149;
+
+        let rect21x11 = 358;
+        let rect21y11 = 125;
+        let rect21x22 = 385;
+        let rect21y22 = 130;
+
+        //rectangles 22 to 42
+        let rect22x11 = 0;
+        let rect22y11 = 0;
+        let rect22x22 = 257;
+        let rect22y22 = 5;
+
+        let rect23x11 = 252;
+        let rect23y11 = 25;
+        let rect23x22 = 257;
+        let rect23y22 = 254;
+
+        let rect24x11 = 0;
+        let rect24y11 = 5;
+        let rect24x22 = 5;
+        let rect24y22 = 254;
+
+        let rect25x11 = 5;
+        let rect25y11 = 249;
+        let rect25x22 = 257;
+        let rect25y22 = 254;
+
+        let rect26x11 = 5;
+        let rect26y11 = 25;
+        let rect26x22 = 232;
+        let rect26y22 = 30;
+
+        let rect27x11 = 227;
+        let rect27y11 = 30;
+        let rect27x22 = 232;
+        let rect27y22 = 229;
+
+        let rect28x11 = 25;
+        let rect28y11 = 224;
+        let rect28x22 = 227;
+        let rect28y22 = 229;
+
+        let rect29x11 = 25;
+        let rect29y11 = 50;
+        let rect29x22 = 30;
+        let rect29y22 = 224;
+
+        let rect30x11 = 25;
+        let rect30y11 = 50;
+        let rect30x22 = 207;
+        let rect30y22 = 55;
+
+        let rect31x11 = 202;
+        let rect31y11 = 55;
+        let rect31x22 = 207;
+        let rect31y22 = 204;
+
+        let rect32x11 = 50;
+        let rect32y11 = 199;
+        let rect32x22 = 202;
+        let rect32y22 = 204;
+
+        let rect33x11 = 50;
+        let rect33y11 = 75;
+        let rect33x22 = 55;
+        let rect33y22 = 199;
+
+        let rect34x11 = 55;
+        let rect34y11 = 75;
+        let rect34x22 = 177;
+        let rect34y22 = 80;
+
+        let rect35x11 = 177;
+        let rect35y11 = 75;
+        let rect35x22 = 182;
+        let rect35y22 = 179;
+
+        let rect36x11 = 75;
+        let rect36y11 = 174;
+        let rect36x22 = 182;
+        let rect36y22 = 179;
+
+        let rect37x11 = 75;
+        let rect37y11 = 100;
+        let rect37x22 = 80;
+        let rect37y22 = 179;
+
+        let rect38x11 = 80;
+        let rect38y11 = 100;
+        let rect38x22 = 157;
+        let rect38y22 = 105;
+
+        let rect39x11 = 152;
+        let rect39y11 = 105;
+        let rect39x22 = 157;
+        let rect39y22 = 154;
+
+        let rect40x11 = 100;
+        let rect40y11 = 149;
+        let rect40x22 = 152;
+        let rect40y22 = 154;
+
+        let rect41x11 = 100;
+        let rect41y11 = 125;
+        let rect41x22 = 105;
+        let rect41y22 = 149;
+
+        let rect42x11 = 105;
+        let rect42y11 = 125;
+        let rect42x22 = 132;
+        let rect42y22 = 130;
+
+        return this;
+    }
+
+    method void restart()
+    {
+        do ball.dispose();
+        //do Screen.setColor(false); 
+        //do Screen.drawCircle(tx, ty, tr);
+        let ball = Circle.new(115,140,5);//395,139
+
+        let direction = 0;
+        do run();
+        return;
+    }
+
+    method void startlevel3slide()
+    {
+        do Screen.clearScreen();
+        do Output.moveCursor(0,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(1,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(2,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(3,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(4,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(5,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(6,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(7,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(8,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(9,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(10,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(11,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(12,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(13,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(14,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(15,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(16,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(17,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(18,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(19,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(20,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(21,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(22,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(21, 22);
+        do Output.printString("Press y to start !");
+        do Output.moveCursor(11, 27);
+        do Output.printString("LEVEL 3");
+        return;
+    }
+    method void dispose() 
+    {
+    do ball.dispose();
+    do rectangle1.dispose();
+    do rectangle2.dispose();
+    do rectangle3.dispose();
+    do rectangle4.dispose();
+    do rectangle5.dispose();
+    do rectangle6.dispose();
+    do rectangle7.dispose();
+    do rectangle8.dispose();
+    do rectangle9.dispose();
+    do rectangle10.dispose();
+    do rectangle11.dispose();
+    do rectangle12.dispose();
+    do rectangle13.dispose();
+    do rectangle14.dispose();
+    do rectangle15.dispose();
+    do rectangle16.dispose();
+    do rectangle17.dispose();
+    do rectangle18.dispose();
+    do rectangle19.dispose();
+    do rectangle20.dispose();
+    do rectangle21.dispose();
+    do rectangle22.dispose();
+    do rectangle23.dispose();
+    do rectangle24.dispose();
+    do rectangle25.dispose();
+    do rectangle26.dispose();
+    do rectangle27.dispose();
+    do rectangle28.dispose();
+    do rectangle29.dispose();
+    do rectangle30.dispose();
+    do rectangle31.dispose();
+    do rectangle32.dispose();
+    do rectangle33.dispose();
+    do rectangle34.dispose();
+    do rectangle35.dispose();
+    do rectangle36.dispose();
+    do rectangle37.dispose();
+    do rectangle38.dispose();
+    do rectangle39.dispose();
+    do rectangle40.dispose();
+    do rectangle41.dispose();
+    do rectangle42.dispose();
+
+    do Memory.deAlloc(this);
+    return;
+    }
+
+    method void successprint()
+    {
+        do Output.moveCursor(0,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(1,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(2,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(3,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(4,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(5,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(6,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(7,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(8,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(9,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(10,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(11,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(11, 17);
+        do Output.printString("Sucessfully passed the level 3!");
+        do Output.moveCursor(12,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(12, 23);
+        do Output.printString("End of the game!!!");
+        do Output.moveCursor(13,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(14,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(15,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(16,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(17,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(18,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(19,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(20,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(21,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(22,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(21, 14);
+        do Output.printString("Upcoming levels to be created in future");
+        do Sys.wait(10000);
+        return;
+    }
+
+    method void errorprint()
+    {
+        do Output.moveCursor(0,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(1,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(2,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(3,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(4,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(5,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(6,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(7,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(8,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(9,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(10,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(10, 25);
+        do Output.printString("Hit in wall!");
+        do Output.moveCursor(11,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(12,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(13,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(14,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(15,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(16,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(17,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(18,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(19,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(20,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(21,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(22,0);
+        do Output.printString("****************************************************************");
+	    do Output.moveCursor(21, 17);
+        do Output.printString("Press r to restart this level ");
+        //do Sys.wait(5000);
+        return;
+    }
+
+   method void moveball() 
+    {
+        if (direction = 1) 
+        { 
+            do ball.moveUp(); 
+        } 
+        if (direction = 2) 
+        { 
+            do ball.moveDown(); 
+        } 
+        if (direction = 3) 
+        { 
+            do ball.moveLeft(); 
+        } 
+        if (direction = 4) 
+        { 
+            do ball.moveRight(); 
+        }
+        do Sys.wait(5);
+        return;
+    }
+        
+    //let ball = Circle.new(370,140,5);
+    method void isendball()
+    {
+        var int tx1,ty1;
+        
+        let tx1 = ball.getx();
+        let ty1 = ball.gety();
+        if((tx1 = 370) & (ty1 < 145) & (ty1 > 135))
+        {
+        do successprint();
+        let exit=true;
+        return;
+        }
+        return;
+    }
+
+     method void run() 
+    {
+        let exit = false; 
+        do borderdraw();
+        while (~exit) 
+        {
+            let key=0;
+            let key = Keyboard.keyPressed();
+            while(~(key = 0))
+            {
+            if (key = 81)  
+            { 
+                let exit = true; 
+            }
+            if (key = 131) 
+            { 
+                let direction = 1; 
+                do moveball();
+            }
+            if (key = 133) 
+            { 
+                let direction = 2;
+                do moveball();
+            }   
+            if (key = 130) 
+            { 
+                let direction = 3; 
+                do moveball();
+            }  
+            if (key = 132) 
+            { 
+                let direction = 4; 
+                do moveball();
+            }
+            do checkCollisionball();
+            do isendball();
+            let key = 0;
+            }
+        }
+        return;
+    }
+    
+    method void borderdraw()
+    {
+        let rectangle1 = Circlewall.new(rect1x11, rect1y11, rect1x22, rect1y22);
+        let rectangle2 = Circlewall.new(rect2x11, rect2y11, rect2x22, rect2y22);
+        let rectangle3 = Circlewall.new(rect3x11, rect3y11, rect3x22, rect3y22);
+        let rectangle4 = Circlewall.new(rect4x11, rect4y11, rect4x22, rect4y22);
+        let rectangle5 = Circlewall.new(rect5x11, rect5y11, rect5x22, rect5y22);
+        let rectangle6 = Circlewall.new(rect6x11, rect6y11, rect6x22, rect6y22);
+        let rectangle7 = Circlewall.new(rect7x11, rect7y11, rect7x22, rect7y22);
+        let rectangle8 = Circlewall.new(rect8x11, rect8y11, rect8x22, rect8y22);
+        let rectangle9 = Circlewall.new(rect9x11, rect9y11, rect9x22, rect9y22);
+        let rectangle10 = Circlewall.new(rect10x11, rect10y11, rect10x22, rect10y22);
+        let rectangle11 = Circlewall.new(rect11x11, rect11y11, rect11x22, rect11y22);
+        let rectangle12 = Circlewall.new(rect12x11, rect12y11, rect12x22, rect12y22);
+        let rectangle13 = Circlewall.new(rect13x11, rect13y11, rect13x22, rect13y22);
+        let rectangle14 = Circlewall.new(rect14x11, rect14y11, rect14x22, rect14y22);
+        let rectangle15 = Circlewall.new(rect15x11, rect15y11, rect15x22, rect15y22);
+        let rectangle16 = Circlewall.new(rect16x11, rect16y11, rect16x22, rect16y22);
+        let rectangle17 = Circlewall.new(rect17x11, rect17y11, rect17x22, rect17y22);
+        let rectangle18 = Circlewall.new(rect18x11, rect18y11, rect18x22, rect18y22);
+        let rectangle19 = Circlewall.new(rect19x11, rect19y11, rect19x22, rect19y22);
+        let rectangle20 = Circlewall.new(rect20x11, rect20y11, rect20x22, rect20y22);
+        let rectangle21 = Circlewall.new(rect21x11, rect21y11, rect21x22, rect21y22);
+        let rectangle22 = Circlewall.new(rect22x11, rect22y11, rect22x22, rect22y22);
+        let rectangle23 = Circlewall.new(rect23x11, rect23y11, rect23x22, rect23y22);
+        let rectangle24 = Circlewall.new(rect24x11, rect24y11, rect24x22, rect24y22);
+        let rectangle25 = Circlewall.new(rect25x11, rect25y11, rect25x22, rect25y22);
+        let rectangle26 = Circlewall.new(rect26x11, rect26y11, rect26x22, rect26y22);
+        let rectangle27 = Circlewall.new(rect27x11, rect27y11, rect27x22, rect27y22);
+        let rectangle28 = Circlewall.new(rect28x11, rect28y11, rect28x22, rect28y22);
+        let rectangle29 = Circlewall.new(rect29x11, rect29y11, rect29x22, rect29y22);
+        let rectangle30 = Circlewall.new(rect30x11, rect30y11, rect30x22, rect30y22);
+        let rectangle31 = Circlewall.new(rect31x11, rect31y11, rect31x22, rect31y22);
+        let rectangle32 = Circlewall.new(rect32x11, rect32y11, rect32x22, rect32y22);
+        let rectangle33 = Circlewall.new(rect33x11, rect33y11, rect33x22, rect33y22);
+        let rectangle34 = Circlewall.new(rect34x11, rect34y11, rect34x22, rect34y22);
+        let rectangle35 = Circlewall.new(rect35x11, rect35y11, rect35x22, rect35y22);
+        let rectangle36 = Circlewall.new(rect36x11, rect36y11, rect36x22, rect36y22);
+        let rectangle37 = Circlewall.new(rect37x11, rect37y11, rect37x22, rect37y22);
+        let rectangle38 = Circlewall.new(rect38x11, rect38y11, rect38x22, rect38y22);
+        let rectangle39 = Circlewall.new(rect39x11, rect39y11, rect39x22, rect39y22);
+        let rectangle40 = Circlewall.new(rect40x11, rect40y11, rect40x22, rect40y22);
+        let rectangle41 = Circlewall.new(rect41x11, rect41y11, rect41x22, rect41y22);
+        let rectangle42 = Circlewall.new(rect42x11, rect42y11, rect42x22, rect42y22);
+
+        return;
+    }
+    
+    method void checkCollisionball() 
+    {
+        var int tx, ty, tr;
+        var boolean check;
+        let tx = ball.getx();
+        let ty = ball.gety();
+        let tr = ball.getr();
+        let check = false;
+        
+        // Rectangle 1
+        
+        if(((tx + tr > rect1x11) | (tx + tr = rect1x11)) & ((tx - tr < rect1x22) | (tx - tr = rect1x22))
+            & ((ty + tr > rect1y11) | (ty + tr = rect1y11)) & ((ty - tr < rect1y22) | (ty - tr = rect1y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 2
+        
+        if(((tx + tr > rect2x11) | (tx + tr = rect2x11)) & ((tx - tr < rect2x22) | (tx - tr = rect2x22))
+            & ((ty + tr > rect2y11) | (ty + tr = rect2y11)) & ((ty - tr < rect2y22) | (ty - tr = rect2y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 4
+        
+        if(((tx + tr > rect4x11) | (tx + tr = rect4x11)) & ((tx - tr < rect4x22) | (tx - tr = rect4x22))
+            & ((ty + tr > rect4y11) | (ty + tr = rect4y11)) & ((ty - tr < rect4y22) | (ty - tr = rect4y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 5
+        
+        if(((tx + tr > rect5x11) | (tx + tr = rect5x11)) & ((tx - tr < rect5x22) | (tx - tr = rect5x22))
+            & ((ty + tr > rect5y11) | (ty + tr = rect5y11)) & ((ty - tr < rect5y22) | (ty - tr = rect5y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 6
+        
+        if(((tx + tr > rect6x11) | (tx + tr = rect6x11)) & ((tx - tr < rect6x22) | (tx - tr = rect6x22))
+            & ((ty + tr > rect6y11) | (ty + tr = rect6y11)) & ((ty - tr < rect6y22) | (ty - tr = rect6y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 7
+        
+        if(((tx + tr > rect7x11) | (tx + tr = rect7x11)) & ((tx - tr < rect7x22) | (tx - tr = rect7x22))
+            & ((ty + tr > rect7y11) | (ty + tr = rect7y11)) & ((ty - tr < rect7y22) | (ty - tr = rect7y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 8
+        
+        if(((tx + tr > rect8x11) | (tx + tr = rect8x11)) & ((tx - tr < rect8x22) | (tx - tr = rect8x22))
+            & ((ty + tr > rect8y11) | (ty + tr = rect8y11)) & ((ty - tr < rect8y22) | (ty - tr = rect8y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 9
+        
+        if(((tx + tr > rect9x11) | (tx + tr = rect9x11)) & ((tx - tr < rect9x22) | (tx - tr = rect9x22))
+            & ((ty + tr > rect9y11) | (ty + tr = rect9y11)) & ((ty - tr < rect9y22) | (ty - tr = rect9y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 10
+        
+        if(((tx + tr > rect10x11) | (tx + tr = rect10x11)) & ((tx - tr < rect10x22) | (tx - tr = rect10x22))
+            & ((ty + tr > rect10y11) | (ty + tr = rect10y11)) & ((ty - tr < rect10y22) | (ty - tr = rect10y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 11
+        
+        if(((tx + tr > rect11x11) | (tx + tr = rect11x11)) & ((tx - tr < rect11x22) | (tx - tr = rect11x22))
+            & ((ty + tr > rect11y11) | (ty + tr = rect11y11)) & ((ty - tr < rect11y22) | (ty - tr = rect11y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 12
+        
+        if(((tx + tr > rect12x11) | (tx + tr = rect12x11)) & ((tx - tr < rect12x22) | (tx - tr = rect12x22))
+            & ((ty + tr > rect12y11) | (ty + tr = rect12y11)) & ((ty - tr < rect12y22) | (ty - tr = rect12y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 13
+        
+        if(((tx + tr > rect13x11) | (tx + tr = rect13x11)) & ((tx - tr < rect13x22) | (tx - tr = rect13x22))
+            & ((ty + tr > rect13y11) | (ty + tr = rect13y11)) & ((ty - tr < rect13y22) | (ty - tr = rect13y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 14
+        
+        if(((tx + tr > rect14x11) | (tx + tr = rect14x11)) & ((tx - tr < rect14x22) | (tx - tr = rect14x22))
+            & ((ty + tr > rect14y11) | (ty + tr = rect14y11)) & ((ty - tr < rect14y22) | (ty - tr = rect14y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 15
+        
+        if(((tx + tr > rect15x11) | (tx + tr = rect15x11)) & ((tx - tr < rect15x22) | (tx - tr = rect15x22))
+            & ((ty + tr > rect15y11) | (ty + tr = rect15y11)) & ((ty - tr < rect15y22) | (ty - tr = rect15y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 16
+        
+        if(((tx + tr > rect16x11) | (tx + tr = rect16x11)) & ((tx - tr < rect16x22) | (tx - tr = rect16x22))
+            & ((ty + tr > rect16y11) | (ty + tr = rect16y11)) & ((ty - tr < rect16y22) | (ty - tr = rect16y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 17
+        
+        if(((tx + tr > rect17x11) | (tx + tr = rect17x11)) & ((tx - tr < rect17x22) | (tx - tr = rect17x22))
+            & ((ty + tr > rect17y11) | (ty + tr = rect17y11)) & ((ty - tr < rect17y22) | (ty - tr = rect17y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 18
+        
+        if(((tx + tr > rect18x11) | (tx + tr = rect18x11)) & ((tx - tr < rect18x22) | (tx - tr = rect18x22))
+            & ((ty + tr > rect18y11) | (ty + tr = rect18y11)) & ((ty - tr < rect18y22) | (ty - tr = rect18y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 19
+        
+        if(((tx + tr > rect19x11) | (tx + tr = rect19x11)) & ((tx - tr < rect19x22) | (tx - tr = rect19x22))
+            & ((ty + tr > rect19y11) | (ty + tr = rect19y11)) & ((ty - tr < rect19y22) | (ty - tr = rect19y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 20
+        
+        if(((tx + tr > rect20x11) | (tx + tr = rect20x11)) & ((tx - tr < rect20x22) | (tx - tr = rect20x22))
+            & ((ty + tr > rect20y11) | (ty + tr = rect20y11)) & ((ty - tr < rect20y22) | (ty - tr = rect20y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 21
+        
+        if(((tx + tr > rect21x11) | (tx + tr = rect21x11)) & ((tx - tr < rect21x22) | (tx - tr = rect21x22))
+            & ((ty + tr > rect21y11) | (ty + tr = rect21y11)) & ((ty - tr < rect21y22) | (ty - tr = rect21y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 22
+        
+        if(((tx + tr > rect22x11) | (tx + tr = rect22x11)) & ((tx - tr < rect22x22) | (tx - tr = rect22x22))
+            & ((ty + tr > rect22y11) | (ty + tr = rect22y11)) & ((ty - tr < rect22y22) | (ty - tr = rect22y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 23
+        
+        if(((tx + tr > rect23x11) | (tx + tr = rect23x11)) & ((tx - tr < rect23x22) | (tx - tr = rect23x22))
+            & ((ty + tr > rect23y11) | (ty + tr = rect23y11)) & ((ty - tr < rect23y22) | (ty - tr = rect23y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 24
+        
+        if(((tx + tr > rect24x11) | (tx + tr = rect24x11)) & ((tx - tr < rect24x22) | (tx - tr = rect24x22))
+            & ((ty + tr > rect24y11) | (ty + tr = rect24y11)) & ((ty - tr < rect24y22) | (ty - tr = rect24y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 25
+        
+        if(((tx + tr > rect25x11) | (tx + tr = rect25x11)) & ((tx - tr < rect25x22) | (tx - tr = rect25x22))
+            & ((ty + tr > rect25y11) | (ty + tr = rect25y11)) & ((ty - tr < rect25y22) | (ty - tr = rect25y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 26
+        
+        if(((tx + tr > rect26x11) | (tx + tr = rect26x11)) & ((tx - tr < rect26x22) | (tx - tr = rect26x22))
+            & ((ty + tr > rect26y11) | (ty + tr = rect26y11)) & ((ty - tr < rect26y22) | (ty - tr = rect26y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 27
+        
+        if(((tx + tr > rect27x11) | (tx + tr = rect27x11)) & ((tx - tr < rect27x22) | (tx - tr = rect27x22))
+            & ((ty + tr > rect27y11) | (ty + tr = rect27y11)) & ((ty - tr < rect27y22) | (ty - tr = rect27y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 28
+        
+        if(((tx + tr > rect28x11) | (tx + tr = rect28x11)) & ((tx - tr < rect28x22) | (tx - tr = rect28x22))
+            & ((ty + tr > rect28y11) | (ty + tr = rect28y11)) & ((ty - tr < rect28y22) | (ty - tr = rect28y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 29
+        
+        if(((tx + tr > rect29x11) | (tx + tr = rect29x11)) & ((tx - tr < rect29x22) | (tx - tr = rect29x22))
+            & ((ty + tr > rect29y11) | (ty + tr = rect29y11)) & ((ty - tr < rect29y22) | (ty - tr = rect29y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 30
+        
+        if(((tx + tr > rect30x11) | (tx + tr = rect30x11)) & ((tx - tr < rect30x22) | (tx - tr = rect30x22))
+            & ((ty + tr > rect30y11) | (ty + tr = rect30y11)) & ((ty - tr < rect30y22) | (ty - tr = rect30y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 31
+        
+        if(((tx + tr > rect31x11) | (tx + tr = rect31x11)) & ((tx - tr < rect31x22) | (tx - tr = rect31x22))
+            & ((ty + tr > rect31y11) | (ty + tr = rect31y11)) & ((ty - tr < rect31y22) | (ty - tr = rect31y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 32
+        
+        if(((tx + tr > rect32x11) | (tx + tr = rect32x11)) & ((tx - tr < rect32x22) | (tx - tr = rect32x22))
+            & ((ty + tr > rect32y11) | (ty + tr = rect32y11)) & ((ty - tr < rect32y22) | (ty - tr = rect32y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 33
+        
+        if(((tx + tr > rect33x11) | (tx + tr = rect33x11)) & ((tx - tr < rect33x22) | (tx - tr = rect33x22))
+            & ((ty + tr > rect33y11) | (ty + tr = rect33y11)) & ((ty - tr < rect33y22) | (ty - tr = rect33y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 34
+        
+        if(((tx + tr > rect34x11) | (tx + tr = rect34x11)) & ((tx - tr < rect34x22) | (tx - tr = rect34x22))
+            & ((ty + tr > rect34y11) | (ty + tr = rect34y11)) & ((ty - tr < rect34y22) | (ty - tr = rect34y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 35
+        
+        if(((tx + tr > rect35x11) | (tx + tr = rect35x11)) & ((tx - tr < rect35x22) | (tx - tr = rect35x22))
+            & ((ty + tr > rect35y11) | (ty + tr = rect35y11)) & ((ty - tr < rect35y22) | (ty - tr = rect35y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 36
+        
+        if(((tx + tr > rect36x11) | (tx + tr = rect36x11)) & ((tx - tr < rect36x22) | (tx - tr = rect36x22))
+            & ((ty + tr > rect36y11) | (ty + tr = rect36y11)) & ((ty - tr < rect36y22) | (ty - tr = rect36y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 37
+        
+        if(((tx + tr > rect37x11) | (tx + tr = rect37x11)) & ((tx - tr < rect37x22) | (tx - tr = rect37x22))
+            & ((ty + tr > rect37y11) | (ty + tr = rect37y11)) & ((ty - tr < rect37y22) | (ty - tr = rect37y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 38
+        
+        if(((tx + tr > rect38x11) | (tx + tr = rect38x11)) & ((tx - tr < rect38x22) | (tx - tr = rect38x22))
+            & ((ty + tr > rect38y11) | (ty + tr = rect38y11)) & ((ty - tr < rect38y22) | (ty - tr = rect38y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 39
+        
+        if(((tx + tr > rect39x11) | (tx + tr = rect39x11)) & ((tx - tr < rect39x22) | (tx - tr = rect39x22))
+            & ((ty + tr > rect39y11) | (ty + tr = rect39y11)) & ((ty - tr < rect39y22) | (ty - tr = rect39y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 40
+        
+        if(((tx + tr > rect40x11) | (tx + tr = rect40x11)) & ((tx - tr < rect40x22) | (tx - tr = rect40x22))
+            & ((ty + tr > rect40y11) | (ty + tr = rect40y11)) & ((ty - tr < rect40y22) | (ty - tr = rect40y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 41
+        
+        if(((tx + tr > rect41x11) | (tx + tr = rect41x11)) & ((tx - tr < rect41x22) | (tx - tr = rect41x22))
+            & ((ty + tr > rect41y11) | (ty + tr = rect41y11)) & ((ty - tr < rect41y22) | (ty - tr = rect41y22))) 
+        {
+            let check = true;
+        }
+        
+        // Rectangle 42
+        if(((tx + tr > rect42x11) | (tx + tr = rect42x11)) & ((tx - tr < rect42x22) | (tx - tr = rect42x22))
+            & ((ty + tr > rect42y11) | (ty + tr = rect42y11)) & ((ty - tr < rect42y22) | (ty - tr = rect42y22))) 
+        {
+            let check = true;
+        }
+
+        if(check)
+        {
+		//do Sys.wait(5000);
+            do errorprint();
+	        let exit = false;
+	        while (~exit) 
+                {
+                    let key = Keyboard.keyPressed();
+                    while(~(key = 0))
+                        {
+                            if (key = 82)  
+                                {
+                            		do Screen.clearScreen();
+                            		do restart();
+                                }            
+	                        let key = 0;
+                       }
+                }
+        }
+        return;
+    }
+}
+
+        
+        

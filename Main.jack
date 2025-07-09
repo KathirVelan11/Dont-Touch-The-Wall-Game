@@ -1,0 +1,266 @@
+class Main 
+{
+    function void main() 
+    {
+        var int entry,secondentry;
+        do Main.intialslide();
+        let entry = Main.check();
+        if(entry = 1)
+        {
+            do Main.selectplayergame();
+            let secondentry = Main.check();
+            if(secondentry = 3)
+            {
+                do Main.level1();
+            }
+            if(secondentry = 4)
+            {
+                do Main.twoplayerlevel1();
+            }
+        }
+        return;
+    }
+
+    function void level1()
+    {
+        var CircleGame level1;
+        var int startlevel1,gotolevel2;
+        let level1 = CircleGame.new();
+        do level1.startlevel1slide();
+        let startlevel1 = Main.check();
+        if(startlevel1 = 2)
+        {
+        do level1.run();
+        let gotolevel2 = Main.check();
+        if(gotolevel2 = 1)
+        {
+        do level1.dispose();
+        do Main.level2();
+        }
+        }
+        return;
+    }
+
+    function void level2()
+    {
+        var int tostartlevel2initalslide,tostartlevel2,gotolevel3;
+        var Circlegametwo level2;
+        let tostartlevel2initalslide = Main.check();
+        if(tostartlevel2initalslide = 1)
+        {
+        do level2.startlevel2slide();
+        let tostartlevel2 = Main.check();
+        if(tostartlevel2 = 2)
+        {
+        let level2 = Circlegametwo.new();
+        do level2.run();
+        let gotolevel3 = Main.check();
+        if(gotolevel3 = 1)
+        {
+        do level2.dispose();
+        do Main.level3();
+        }
+        }
+        }
+        return;
+    }
+
+    function void level3()
+    {
+        var Circlegamethree level3;
+        var int tostartlevel3;
+        do level3.startlevel3slide();
+        let tostartlevel3 = Main.check();
+        if(tostartlevel3 = 2)
+        {
+        let level3 = Circlegamethree.new();
+        do level3.run();
+        do level3.dispose();
+        }
+        return;
+    }
+
+    function void twoplayerlevel1()
+    {
+        var int enterlevel1,enteraftercontrols;
+        var twoplayergame obj;
+        let obj = twoplayergame.new();
+        do obj.displayText();
+        let enterlevel1 = Main.check();
+        if(enterlevel1 = 1)
+        {
+            do obj.controls();
+            let enteraftercontrols = Main.check();
+            if(enteraftercontrols = 2)
+            {
+                do obj.run();
+                do obj.dispose();
+            }
+        }
+        return;
+    }
+
+    function void intialslide()
+    {
+        do Output.moveCursor(0,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(1,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(2,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(3,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(4,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(5,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(6,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(7,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(8,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(9,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(9, 17);
+        do Output.printString("DONT TOUCH THE WALL GAME");
+        do Output.moveCursor(10,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(11,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(12,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(13,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(14,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(15,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(16,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(15, 50);
+        do Output.printString("By");
+        do Output.moveCursor(17,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(16, 50);
+        do Output.printString("Kathirvelan");
+        do Output.moveCursor(18,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(17, 50);
+        do Output.printString("Kaveen Kawsal");
+        do Output.moveCursor(19,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(18, 50);
+        do Output.printString("Jeiesh");
+        do Output.moveCursor(20,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(19, 50);
+        do Output.printString("Darika");
+        do Output.moveCursor(21,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(22,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(21, 17);
+        do Output.printString("Press space bar to start the game !");
+        return;
+    }
+
+    function void selectplayergame()
+    {
+        do Screen.clearScreen();
+        do Output.moveCursor(0,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(1,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(2,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(3,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(4,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(5,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(6,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(7,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(8,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(9,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(10,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(11,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(12,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(13,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(14,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(15,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(16,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(17,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(18,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(19,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(20,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(21,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(22,0);
+        do Output.printString("****************************************************************");
+
+        do Output.moveCursor(10, 12);
+        do Output.printString(" Choose anything from below to enter the game ");
+        do Output.moveCursor(12, 22);
+        do Output.printString(" 1 Player Game(Press 1)");
+        do Output.moveCursor(13, 22);
+        do Output.printString(" 2 Player Game(Press 2)");
+        return;
+    }
+
+    function int check() 
+   {
+        var boolean exit1;
+        var int key;
+        let exit1 = false;
+        
+        while (~exit1) 
+        {
+            let key = Keyboard.keyPressed();
+            
+            if (key = 32  ) 
+            {  
+                let exit1 = true;
+                do Screen.clearScreen();
+                return 1;//space bar
+            }
+            if (key = 89  ) 
+            {  
+                let exit1 = true;
+                do Screen.clearScreen();
+                return 2;//y
+            }
+            if (key = 49  ) 
+            {  
+                let exit1 = true;
+                do Screen.clearScreen();
+                return 3;//1
+            }
+            if (key = 50  ) 
+            {  
+                let exit1 = true;
+                do Screen.clearScreen();
+                return 4;//2
+            }
+            let key = 0;
+        }
+        return 0;
+    }
+	
+}

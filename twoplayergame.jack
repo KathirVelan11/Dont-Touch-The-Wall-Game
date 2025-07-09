@@ -1,0 +1,875 @@
+class twoplayergame 
+{
+    field int direction1,direction2;
+    field Circle ball1,ball2; 
+    field int key;
+    field boolean exit;
+    field Displaytwoplayergame dobj;
+    
+    field int topx11, topy11, topx22, topy22;
+    field int leftx11, lefty11, leftx22, lefty22;
+    field int rightx11, righty11, rightx22, righty22;
+    field int rightdownx11, rightdowny11, rightdownx22, rightdowny22;
+    field int leftdownx11, leftdowny11, leftdownx22, leftdowny22;
+    field int midrect1x11,midrect1y11,midrect1x22,midrect1y22;
+    field int midrect2x11,midrect2y11,midrect2x22,midrect2y22;
+    
+    field int ph11x11,ph11y11,ph11x22,ph11y22;
+    field int ph12x11,ph12y11,ph12x22,ph12y22;
+    field int ph13x11,ph13y11,ph13x22,ph13y22;
+    field int ph14x11,ph14y11,ph14x22,ph14y22;
+    
+    field int ph21x11,ph21y11,ph21x22,ph21y22;
+    field int ph22x11,ph22y11,ph22x22,ph22y22;
+    field int ph23x11,ph23y11,ph23x22,ph23y22;
+    field int ph24x11,ph24y11,ph24x22,ph24y22;
+    
+    field Circlewall top,right,left,leftdown,rightdown,mid1,mid2;
+    field Circlewall player11h,player12h,player13h,player14h;
+    field Circlewall player21h,player22h,player23h,player24h;
+    
+    constructor twoplayergame new() 
+    {
+        /* 
+        let ball1 = Circle.new(15, 15, 5); 
+        let ball1 = Circle.new(180, 220, 5); 
+        
+        let ball2 = Circle.new(495, 15, 5);
+        let ball2 = Circle.new(320,220,5);*/
+
+        let direction1 = 0;
+        let direction2 = 0;
+        
+        //borders rectaangles
+        let topx11 = 0;
+        let topy11 = 0;
+        let topx22 = 510;
+        let topy22 = 5;
+        
+        let leftx11 = 0;
+        let lefty11 = 0;
+        let leftx22 = 5;
+        let lefty22 = 254;
+        
+        let rightx11 = 505;
+        let righty11 = 0;
+        let rightx22 = 510;
+        let righty22 = 254;
+        
+        let rightdownx11 = 0;
+        let rightdowny11 = 249;
+        let rightdownx22 = 194;
+        let rightdowny22 = 254;
+        
+        let leftdownx11 = 316;
+        let leftdowny11 = 249;
+        let leftdownx22 = 510;
+        let leftdowny22 = 254;
+        
+        //middle rectangles
+        let midrect1x11 = 215;
+        let midrect1y11 = 0;
+        let midrect1x22 = 220;
+        let midrect1y22 = 254;
+        
+        let midrect2x11 = 290;
+        let midrect2y11 = 0;
+        let midrect2x22 = 295;
+        let midrect2y22 = 254;
+        
+        //player1 horizontal rectangles-4
+        let ph11x11=0;
+        let ph11y11=45;
+        let ph11x22=185;
+        let ph11y22=50;
+        
+        let ph12x11=35;
+        let ph12y11=95;
+        let ph12x22=215;
+        let ph12y22=100;
+        
+        let ph13x11=0;
+        let ph13y11=145;
+        let ph13x22=185;
+        let ph13y22=150;
+        
+        let ph14x11=35;
+        let ph14y11=195;
+        let ph14x22=215;
+        let ph14y22=200;
+        
+        //player2 horizontal rectangles-4
+        let ph21x11=320;
+        let ph21y11=45;
+        let ph21x22=510;
+        let ph21y22=50;
+        
+        let ph22x11=295;
+        let ph22y11=95;
+        let ph22x22=480;
+        let ph22y22=100;
+        
+        let ph23x11=320;
+        let ph23y11=145;
+        let ph23x22=510;
+        let ph23y22=150;
+        
+        let ph24x11=295;
+        let ph24y11=195;
+        let ph24x22=480;
+        let ph24y22=200;
+        
+        return this;
+    }
+
+    method void displayText()
+    {
+        do Screen.clearScreen();
+        do Output.moveCursor(0,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(1,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(2,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(3,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(4,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(5,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(6,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(7,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(8,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(9,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(10,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(11,0);
+        do Output.printString("*                                                              *");
+	    do Output.moveCursor(11, 23);
+        do Output.printString("Two player game");
+        do Output.moveCursor(12,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(12, 26);
+        do Output.printString("Level 1");
+        do Output.moveCursor(13,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(14,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(15,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(16,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(17,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(18,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(19,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(20,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(21,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(22,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(21, 17);
+        do Output.printString("Press space bar to see the controls ");
+        //do Sys.wait(5000);
+        //do Screen.clearScreen();	
+        return;
+    }
+
+    method void controls()
+    {
+        do Screen.clearScreen();
+        do Output.moveCursor(0,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(1,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(2,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(3,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(4,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(5,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(6,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(7,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(8,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(9,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(10,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(11,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(12,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(13,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(14,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(15,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(16,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(17,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(18,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(19,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(20,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(21,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(22,0);
+        do Output.printString("****************************************************************");
+
+    	do Output.moveCursor(7, 26);
+        do Output.printString("Controls");
+
+        do Output.moveCursor(10, 14);
+        do Output.printString("Player 1");
+        do Output.moveCursor(10, 37);
+        do Output.printString("Player 2");
+        
+        do Output.moveCursor(11,30);
+        do Output.printString("|");
+        do Output.moveCursor(11,4);
+	    do Output.printString("T - Move up");
+        do Output.moveCursor(11,35);
+	    do Output.printString("   Up arrow - Move up");
+        
+        do Output.moveCursor(12,30);
+        do Output.printString("|");
+        do Output.moveCursor(12,4);
+	    do Output.printString("G - Move down");
+        do Output.moveCursor(12,35);
+        do Output.printString(" Down arrow - Move down");
+        
+        do Output.moveCursor(13,30);
+        do Output.printString("|");
+        do Output.moveCursor(13,4);
+	    do Output.printString("H - Move right");
+        do Output.moveCursor(13,35);
+        do Output.printString("Right arrow - Move right");
+        
+        do Output.moveCursor(14,30);
+        do Output.printString("|");
+        do Output.moveCursor(14,4);
+        do Output.printString("F - Move left");
+        do Output.moveCursor(14,35);
+	    do Output.printString(" Left arrow - Move left");
+        
+        do Output.moveCursor(21, 17);
+        do Output.printString("Press y to start the game ");
+        //do Sys.wait(5000);
+        //do Screen.clearScreen();	
+        return;
+    }
+
+    method void dispose() 
+    {
+        do ball1.dispose();
+        do ball2.dispose();
+        do Memory.deAlloc(this);
+        return;
+    }
+    
+   method void moveball1() 
+    {
+        if (direction1 = 1) 
+        { 
+            do ball1.moveUp(); 
+        } 
+        if (direction1 = 2) 
+        { 
+            do ball1.moveDown(); 
+        } 
+        if (direction1 = 3) 
+        { 
+            do ball1.moveLeft(); 
+        } 
+        if (direction1 = 4) 
+        { 
+            do ball1.moveRight(); 
+        }
+        do Sys.wait(5);
+        return;
+    }
+        
+    method void moveball2() 
+    {
+        if (direction2 = 1) 
+        { 
+            do ball2.moveUp(); 
+        } 
+        if (direction2 = 2) 
+        { 
+            do ball2.moveDown(); 
+        } 
+        if (direction2 = 3) 
+        { 
+            do ball2.moveLeft(); 
+        } 
+        if (direction2 = 4) 
+        { 
+            do ball2.moveRight(); 
+        }
+        do Sys.wait(5);
+        return;
+    }
+            
+    method int isendball1()
+    {
+        var int tx1,ty1;
+        
+        let tx1 = ball1.getx();
+        let ty1 = ball1.gety();
+        if((tx1 > 194) & (tx1 < 214) & (ty1 = 249) )
+        {
+        do Screen.setColor(false); 
+        do Screen.drawRectangle(221,243,289,254);
+        do Screen.setColor(true);
+        return 1;
+        }
+        return 0;
+    }
+
+    method int isendball2()
+    {
+        var int tx2,ty2;
+        let tx2 = ball2.getx();
+        let ty2 = ball2.gety();
+        if((tx2 > 296) & (tx2 < 316) & (ty2 = 249) )
+        {
+        do Screen.setColor(false); 
+        do Screen.drawRectangle(221,243,289,254);
+        do Screen.setColor(true);
+        return 1;
+        }
+        return 0;
+    }
+    
+    method void successprint(int printvar)
+    {
+        if(printvar = 1)
+        {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(220,100,290,140);
+            do Screen.setColor(true);   
+            do Output.moveCursor(9,28);
+            do Output.printString("Player 1");
+            do Output.moveCursor(10,30);
+            do Output.printString("wins");
+        }
+        
+        if(printvar = 2)
+        {
+            do Screen.setColor(false);
+            do Screen.drawRectangle(220,100,290,140);
+            do Screen.setColor(true);
+            do Output.moveCursor(9,28);
+            do Output.printString("Player 2");
+            do Output.moveCursor(10,30);
+            do Output.printString("wins");
+        }
+        do Sys.wait(5000);
+        return;
+    }
+
+    method void finalsucessprint()
+    {
+        do Screen.clearScreen();
+        do Output.moveCursor(0,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(1,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(2,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(3,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(4,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(5,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(6,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(7,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(8,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(9,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(10,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(11,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(12,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(13,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(14,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(15,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(16,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(17,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(18,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(19,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(20,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(21,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(22,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(11,25);
+	    do Output.printString("Game over!");
+        do Sys.wait(10000);
+        return;
+    }
+
+     method void run() 
+    {
+        var int printvar1,printvar2;
+        var int collisionvar1,collisionvar2;
+
+        //let ball1 = Circle.new(15, 15, 5); 
+        let ball1 = Circle.new(180, 220, 5); 
+        
+        //let ball2 = Circle.new(495, 15, 5);
+        let ball2 = Circle.new(320,220,5);
+
+        let exit = false; 
+        do borderdraw();
+        while (~exit) 
+        {
+            let key=0;
+            let key = Keyboard.keyPressed();
+            while(~(key = 0))
+            {
+            if (key = 81)  
+            { 
+                let exit = true; 
+            }
+            if (key = 131) 
+            { 
+                let direction2 = 1; 
+                do moveball2();
+            }
+            if (key = 133) 
+            { 
+                let direction2 = 2;
+                do moveball2();
+            }   
+            if (key = 130) 
+            { 
+                let direction2 = 3; 
+                do moveball2();
+            }  
+            if (key = 132) 
+            { 
+                let direction2 = 4; 
+                do moveball2();
+            }
+
+            if(key = 71) //G
+            {
+                let direction1= 2; //down
+                do moveball1(); 
+            }
+            if( key= 70) //F
+            { 
+                let direction1 = 3;  //left
+                do moveball1();
+            }  
+            if (key = 84) //T
+            { 
+                let direction1 = 1; //up
+                do moveball1();
+            }
+            if (key = 72) //H
+            { 
+                let direction1 = 4; //right
+                do moveball1();
+            }
+            let printvar1 = isendball1();
+            if(printvar1 = 1)
+            {
+                do successprint(1);
+	            do finalsucessprint();
+            }
+            
+            let printvar2 = isendball2();
+            if(printvar2 = 1)
+            {
+                do successprint(2);
+		        do finalsucessprint();
+            }
+            do checkCollisionball1();
+            do checkCollisionball2();
+            /* 
+            let collisionvar1=checkCollisionball1();
+            if(collisionvar1 = 1)
+            {
+                do errorprint(1);
+            }
+            let collisionvar2=checkCollisionball2();
+            if(collisionvar2 = 1)
+            {
+                do errorprint(2);
+            }*/
+            let key = 0;
+            }
+        }
+        return;
+    }
+    
+    method void restart()
+    {
+        do ball1.dispose();
+        do ball2.dispose();
+        //let ball1 = Circle.new(15, 15, 5); 
+        //let ball2 = Circle.new(495, 15, 5);
+        let ball1 = Circle.new(180, 220, 5);
+        let ball2 = Circle.new(320,220,5);
+        let direction1 = 0;
+        let direction2 = 0;
+        do run();
+        return;
+    }
+
+    method void errorprint(int errorvar)
+    {
+	    do Screen.clearScreen();
+        do Output.moveCursor(0,0);
+        do Output.printString("****************************************************************");
+        do Output.moveCursor(1,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(2,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(3,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(4,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(5,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(6,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(7,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(8,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(9,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(10,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(11,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(12,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(13,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(14,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(15,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(16,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(17,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(18,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(19,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(20,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(21,0);
+        do Output.printString("*                                                              *");
+        do Output.moveCursor(22,0);
+        do Output.printString("****************************************************************");
+        
+        if(errorvar = 1)
+        {
+        do Output.moveCursor(11, 20);
+        do Output.printString("Player 1 hit in wall!");
+        }
+        
+        if(errorvar = 2)
+        {
+        do Output.moveCursor(11,20);
+        do Output.printString("Player 2 hit in wall!");
+        }
+        do Output.moveCursor(21, 17);
+        do Output.printString("Press r to restart this level ");
+        return;
+    }
+
+    method void borderdraw()
+    {
+        let top = Circlewall.new(topx11, topy11, topx22, topy22);
+        let left = Circlewall.new(leftx11, lefty11, leftx22, lefty22);
+        let right = Circlewall.new(rightx11, righty11, rightx22, righty22);
+        let leftdown = Circlewall.new(leftdownx11, leftdowny11, leftdownx22, leftdowny22);
+        let rightdown = Circlewall.new(rightdownx11, rightdowny11, rightdownx22,rightdowny22);
+        let mid1 = Circlewall.new(midrect1x11, midrect1y11, midrect1x22, midrect1y22);
+        let mid2 = Circlewall.new(midrect2x11, midrect2y11, midrect2x22, midrect2y22);
+        
+        let player11h=Circlewall.new(ph11x11,ph11y11,ph11x22,ph11y22);
+        let player12h=Circlewall.new(ph12x11,ph12y11,ph12x22,ph12y22);
+        let player13h=Circlewall.new(ph13x11,ph13y11,ph13x22,ph13y22);
+        let player14h=Circlewall.new(ph14x11,ph14y11,ph14x22,ph14y22);
+        
+        let player21h=Circlewall.new(ph21x11,ph21y11,ph21x22,ph21y22);
+        let player22h=Circlewall.new(ph22x11,ph22y11,ph22x22,ph22y22);
+        let player23h=Circlewall.new(ph23x11,ph23y11,ph23x22,ph23y22);
+        let player24h=Circlewall.new(ph24x11,ph24y11,ph24x22,ph24y22);
+        
+	    do Output.moveCursor(9,28);
+        do Output.printString("Player 1");
+        
+        do Output.moveCursor(10,30);
+        do Output.printString("vs");
+        
+        do Output.moveCursor(11,28);
+        do Output.printString("Player 2");
+        
+        do Screen.setColor(false);
+        //Clear out for "<-END->"
+        do Screen.drawRectangle(221,249,289,254);
+        do Screen.drawRectangle(221,0,289,5);
+        //Clear for end space condition
+        do Screen.drawRectangle(194,249,214,254);
+        do Screen.drawRectangle(296,249,316,254);
+        
+        do Screen.setColor(true);
+        do Output.moveCursor(22,29);
+        do Output.printString("<=END=>");
+        return;
+    }
+    
+    method void checkCollisionball1() 
+    {
+        var int tx, ty, tr;
+        var boolean check;
+        let tx = ball1.getx();
+        let ty = ball1.gety();
+        let tr = ball1.getr();
+        let check = false;
+        
+        //mid1
+
+          
+        if(((tx + tr > midrect1x11) | (tx + tr = midrect1x11))  & ((tx - tr < midrect1x22)  | (tx - tr = midrect1x22))
+          &((ty + tr > midrect1y11) | (ty + tr = midrect1y11))  & ((ty - tr < midrect1y22) | (ty - tr = midrect1y22)))
+           {
+               let check = true;
+           }
+
+         //TOP
+        if(((tx + tr > topx11) | (tx + tr = topx11))  & ((tx - tr < topx22)  | (tx - tr = topx22))
+          &((ty + tr > topy11) | (ty + tr = topy11))  & ((ty - tr < topy22) | (ty - tr = topy22)))
+           {
+               let check = true;
+           }
+           
+        // right border
+
+        if(((tx + tr > rightx11) | (tx + tr = rightx11))  & ((tx - tr < rightx22)  | (tx - tr = rightx22))
+          &((ty + tr > righty11) | (ty + tr = righty11))  & ((ty - tr < righty22) | (ty - tr = righty22)))
+           {
+               let check = true;
+           }
+           
+        //left border
+        if(((tx + tr > leftx11) | (tx + tr = leftx11))  & ((tx - tr < leftx22)  | (tx - tr = leftx22))
+          &((ty + tr > lefty11) | (ty + tr = lefty11))  & ((ty - tr < lefty22) | (ty - tr = lefty22)))
+           {
+               let check = true;
+           }
+           
+        //down border_right
+        if(((tx + tr > rightdownx11) | (tx + tr = rightdownx11))  & ((tx - tr < rightdownx22)  | (tx - tr = rightdownx22))
+          &((ty + tr > rightdowny11) | (ty + tr = rightdowny11))  & ((ty - tr < rightdowny22) | (ty - tr = rightdowny22)))
+           {
+               let check = true;
+           }
+           
+        //down border_left
+        if(((tx + tr > leftdownx11) | (tx + tr = leftdownx11))  & ((tx - tr < leftdownx22)  | (tx - tr = leftdownx22))
+          &((ty + tr > leftdowny11) | (ty + tr = leftdowny11))  & ((ty - tr < leftdowny22) | (ty - tr = leftdowny22)))
+           {
+               let check = true;
+           }
+           
+        //player1 first horizontal rectangle
+        if(((tx + tr > ph11x11) | (tx + tr = ph11x11)) & ((tx - tr < ph11x22) | (tx - tr = ph11x22))
+            & ((ty + tr > ph11y11) | (ty + tr = ph11y11)) & ((ty - tr < ph11y22) | (ty - tr = ph11y22))) 
+            {
+            let check = true;
+        }
+        
+        //player1 second horizontal rectangle
+        if(((tx + tr > ph12x11) | (tx + tr = ph12x11)) & ((tx - tr < ph12x22) | (tx - tr = ph12x22))
+            & ((ty + tr > ph12y11) | (ty + tr = ph12y11)) & ((ty - tr < ph12y22) | (ty - tr = ph12y22))) 
+            {
+            let check = true;
+        }
+        
+        //player1 third horizontal rectangle
+        if(((tx + tr > ph13x11) | (tx + tr = ph13x11)) & ((tx - tr < ph13x22) | (tx - tr = ph13x22))
+            & ((ty + tr > ph13y11) | (ty + tr = ph13y11)) & ((ty - tr < ph13y22) | (ty - tr = ph13y22))) 
+            {
+            let check = true;
+        }
+        
+        //player1 fourth horizontal rectangle
+        if(((tx + tr > ph14x11) | (tx + tr = ph14x11)) & ((tx - tr < ph14x22) | (tx - tr = ph14x22))
+            & ((ty + tr > ph14y11) | (ty + tr = ph14y11)) & ((ty - tr < ph14y22) | (ty - tr = ph14y22))) 
+            {
+            let check = true;
+        }
+
+           
+        if(check)
+        {
+            do errorprint(1);
+	        let exit = false;
+	        while (~exit) 
+                {
+                    let key = Keyboard.keyPressed();
+                    while(~(key = 0))
+                        {
+                            if (key = 82)  
+                                {
+                            		do Screen.clearScreen();
+                            		do restart();
+                                }            
+	                        let key = 0;
+                       }
+                }
+        }
+        return ;
+    }
+    
+    method void checkCollisionball2() 
+    {
+        var int tx, ty, tr;
+        var boolean check;
+        let tx = ball2.getx();
+        let ty = ball2.gety();
+        let tr = ball2.getr();
+        let check = false;
+        
+        //mid2
+
+        if(((tx + tr > midrect2x22) | (tx + tr = midrect2x22))  & ((tx - tr < midrect2x22)  | (tx - tr = midrect2x22))
+          &((ty + tr > midrect2y11) | (ty + tr = midrect2y11))  & ((ty - tr < midrect2y22) | (ty - tr = midrect2y22)))
+           {
+               let check = true;
+           }
+        
+
+        // top border
+          
+        if(((tx + tr > topx11) | (tx + tr = topx11))  & ((tx - tr < topx22)  | (tx - tr = topx22))
+          &((ty + tr > topy11) | (ty + tr = topy11))  & ((ty - tr < topy22) | (ty - tr = topy22)))
+           {
+               let check = true;
+           }
+           
+        // right border
+          
+        if(((tx + tr > rightx11) | (tx + tr = rightx11))  & ((tx - tr < rightx22)  | (tx - tr = rightx22))
+          &((ty + tr > righty11) | (ty + tr = righty11))  & ((ty - tr < righty22) | (ty - tr = righty22)))
+           {
+               let check = true;
+           }
+           
+        //left border
+          
+        if(((tx + tr > leftx11) | (tx + tr = leftx11))  & ((tx - tr < leftx22)  | (tx - tr = leftx22))
+          &((ty + tr > lefty11) | (ty + tr = lefty11))  & ((ty - tr < lefty22) | (ty - tr = lefty22)))
+           {
+               let check = true;
+           }
+           
+        //down border_right
+          
+        if(((tx + tr > rightdownx11) | (tx + tr = rightdownx11))  & ((tx - tr < rightdownx22)  | (tx - tr = rightdownx22))
+          &((ty + tr > rightdowny11) | (ty + tr = rightdowny11))  & ((ty - tr < rightdowny22) | (ty - tr = rightdowny22)))
+           {
+               let check = true;
+           }
+           
+        //down border_left
+        if(((tx + tr > leftdownx11) | (tx + tr = leftdownx11))  & ((tx - tr < leftdownx22)  | (tx - tr = leftdownx22))
+          &((ty + tr > leftdowny11) | (ty + tr = leftdowny11))  & ((ty - tr < leftdowny22) | (ty - tr = leftdowny22)))
+           {
+               let check = true;
+           }
+        
+        //player2 first horizontal rectangle
+        if(((tx + tr > ph21x11) | (tx + tr = ph21x11)) & ((tx - tr < ph21x22) | (tx - tr = ph21x22))
+            & ((ty + tr > ph21y11) | (ty + tr = ph21y11)) & ((ty - tr < ph21y22) | (ty - tr = ph21y22))) 
+            {
+            let check = true;
+        }
+        
+        //player2 second horizontal rectangle
+        if(((tx + tr > ph22x11) | (tx + tr = ph22x11)) & ((tx - tr < ph22x22) | (tx - tr = ph22x22))
+            & ((ty + tr > ph22y11) | (ty + tr = ph22y11)) & ((ty - tr < ph22y22) | (ty - tr = ph22y22))) 
+            {
+            let check = true;
+        }
+        
+        //player2 third horizontal rectangle
+        if(((tx + tr > ph23x11) | (tx + tr = ph23x11)) & ((tx - tr < ph23x22) | (tx - tr = ph23x22))
+            & ((ty + tr > ph23y11) | (ty + tr = ph23y11)) & ((ty - tr < ph23y22) | (ty - tr = ph23y22))) 
+            {
+            let check = true;
+        }
+        
+        //player2 fourth horizontal rectangle
+        if(((tx + tr > ph24x11) | (tx + tr = ph24x11)) & ((tx - tr < ph24x22) | (tx - tr = ph24x22))
+            & ((ty + tr > ph24y11) | (ty + tr = ph24y11)) & ((ty - tr < ph24y22) | (ty - tr = ph24y22))) 
+            {
+            let check = true;
+        }
+
+           
+        if(check)
+        {
+            do errorprint(2);
+	        let exit = false;
+	        while (~exit) 
+                {
+                    let key = Keyboard.keyPressed();
+                    while(~(key = 0))
+                        {
+                            if (key = 82)  
+                                {
+                            		do Screen.clearScreen();
+                            		do restart();
+                                }            
+	                        let key = 0;
+                       }
+                }
+        }
+        return ;
+    }
+}
+
+        
+        
